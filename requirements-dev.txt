@@ -1,0 +1,4 @@
+-r requirements-common.txt
+sphinx>=1.2.2,<1.4.0
+pytest>=2.5.2,<2.7.0
+mock>=1.0.1,<1.2.0
