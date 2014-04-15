@@ -12,6 +12,5 @@ setup(
     author_email='jdunck@gmail.com',
     url='https://github.com/jdunck/duplo',
     packages=['duplo'],
-    install_requires=['importlib>=1.0.3,<1.2.0'],
     classifiers=[]
 )
