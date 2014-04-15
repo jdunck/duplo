@@ -1,7 +1,7 @@
 import importlib, operator, sys
 from collections import defaultdict
 from contextlib import contextmanager
-from six import string_types
+from . import six
 
 class EmptyContext(ValueError):
     pass
@@ -87,7 +87,7 @@ class PatchingDoubler(DoublerBase):
     """
     def __init__(self, name, variant, targets):
         super(PatchingDoubler, self).__init__(name)
-        if isinstance(targets, string_types):
+        if isinstance(targets, six.string_types):
             targets = [targets]
 
         if len(targets) < 1:
@@ -130,7 +130,7 @@ class PatchingDoubler(DoublerBase):
             return module
 
     def _resolve_variant(self, variant):
-        if isinstance(variant, string_types):
+        if isinstance(variant, six.string_types):
             try:
                 return self._resolve_target(variant)[0]()
             except MissingPatchTarget: # assume it's a literal value
@@ -265,7 +265,7 @@ class DoubleManager(object):
         if doubles is None:
             return
 
-        if isinstance(doubles, string_types):
+        if isinstance(doubles, six.string_types):
             doubles = [doubles]
 
         if not all(d in self.registry for d in doubles):
