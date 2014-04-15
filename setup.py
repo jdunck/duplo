@@ -5,7 +5,7 @@ with open('README.rst', 'r') as fh:
 
 setup(
     name='duplo',
-    version='1.0.2',
+    version='1.0.3',
     description='Makes testing easier',
     long_description=long_description,
     author='Jeremy Dunck',
