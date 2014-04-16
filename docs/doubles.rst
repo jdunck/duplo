@@ -6,6 +6,8 @@ If you have tests that depend on some expensive subsystem, consider using `test 
 One-time setup::
 
     from duplo import doubles
+
+    manager = doubles.DoubleManager()
     mailing_list_doubler = doubles.PatchingDoubler(
         'mailing_list', 'mail.helpers:FakeMailingListManager',
         'mail.swappables:MailingListManager'
@@ -18,15 +20,13 @@ One-time setup::
     )
     manager.register_double(shortener_doubler)
 
-    double_manager = doubles.DoubleManager()
-
 Then, in tests::
 
-    double_manager.apply_doubles(include=['url_shortener'])
+    manager.apply_doubles(include=['url_shortener'])
 
 *or*::
 
-    with doubles.applied('url_shortener'):
+    with doubles.applied(manager, 'url_shortener'):
          # stubbed shortener requests here
     # normal shortener requests here.
 
