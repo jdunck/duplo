@@ -4,6 +4,7 @@ Duplo
 A collection of utilities to make testing easier, starting with a test double management system.
 
 Supports Python 2.7, 3.4, and PyPy.
+.. image:: https://travis-ci.org/jdunck/duplo.png
 
 Documentation: http://duplo.readthedocs.org/en/latest/
 
